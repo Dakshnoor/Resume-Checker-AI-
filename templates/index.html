@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResumeMatch – Resume Checker AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top-bar">
+    <div class="logo">✨ ResumeMatch</div>
+    <div class="badges">
+        <span>⚡ Instant Analysis</span>
+        <span>🔒 100% Private</span>
+        <span>🤖 AI-Powered</span>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Check Your Resume</h1>
+    <div class="hero-bar"></div>
+    <p>
+        Upload your resume and paste the job description to see how well they align.
+        Get instant feedback and actionable insights.
+    </p>
+</section>
+
+<!-- MAIN -->
+<section class="container">
+    <form method="POST" enctype="multipart/form-data">
+
+        <div class="main-grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="left-column">
+
+                <div class="card">
+                    <h3>📄 Job Description</h3>
+                    <textarea name="job_text" placeholder="Paste the job description here..."></textarea>
+
+                    <div class="divider">OR</div>
+
+                    <input type="file" name="job_desc" accept=".txt">
+                </div>
+
+                <div class="card">
+                    <h3>📑 Your Resume</h3>
+                    <input type="file" name="resume" accept=".txt,.pdf,.doc,.docx" required>
+                    <p class="hint">Drag & drop or browse (PDF, DOC, DOCX, TXT)</p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-column">
+                <div class="card result-card">
+                    {% if match_percentage is not none %}
+                        <h3>Match Score</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--value: {{ match_percentage }}%;">
+                                {{ match_percentage }}%
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="placeholder">
+                            🎯 <strong>Ready to Analyze</strong><br>
+                            <span>Enter job description and upload your resume</span>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="full">
+            <button type="submit">🚀 Analyze Match</button>
+        </div>
+
+    </form>
+</section>
+
+<footer>
+    Your data stays private. Files are processed locally.
+</footer>
+
+</body>
+</html>
