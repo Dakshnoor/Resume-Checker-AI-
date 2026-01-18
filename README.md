@@ -7,7 +7,5 @@ A web-based AI application that checks how well a resume matches a job descripti
 - Flask
 - NLP (TF-IDF, Cosine Similarity)
 
-## How to Run
-1. pip install -r requirements.txt
-2. python app.py
-3. Open http://127.0.0.1:5000/
+<img width="1184" height="854" alt="image" src="https://github.com/user-attachments/assets/0713b237-c497-47e7-a940-fbcf3a043639" />
+
